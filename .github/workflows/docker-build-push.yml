@@ -63,9 +63,8 @@ jobs:
           echo "NODE_VERSION=${{ inputs.node_version }}" >> "$GITHUB_ENV"
 
       - name: Build
-        uses: docker/bake-action@v6.2.0
+        uses: docker/bake-action@v5.11.0
         with:
-          source: .
           push: true
         env:
           REGISTRY_USER: localhost:5000/frappe
@@ -92,6 +91,6 @@ jobs:
 
       - name: Push
         if: ${{ inputs.push }}
-        uses: docker/bake-action@v6.2.0
+        uses: docker/bake-action@v5.11.0
         with:
           push: true
